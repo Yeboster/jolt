@@ -325,6 +325,31 @@ public class Math {
        return Optional.empty();
     }
     
+    public static Optional<Double> doubleMultiply(List<Object> argList) {
+
+        if ( argList == null || argList.size() != 2 ) {
+            return Optional.empty();
+        }
+
+        Optional<? extends Number> numerator = Objects.toNumber(argList.get(0));
+        Optional<? extends Number> denominator = Objects.toNumber(argList.get(1));
+
+        if(numerator.isPresent() && denominator.isPresent()) {
+
+            Double drLongValue = denominator.get().doubleValue();
+            if(drLongValue == 0) {
+                return Optional.empty();
+            }
+
+            Double nrLongValue = numerator.get().doubleValue();
+            Double result = nrLongValue * drLongValue;
+            // long result = java.lang.Math.mul(nrLongValue, drLongValue);
+            return Optional.of(result);
+        }
+
+        return Optional.empty();
+    }
+    
     public static Optional<Integer> multiply(List<Object> argList) {
 
         if ( argList == null || argList.size() != 2 ) {
@@ -478,6 +503,16 @@ public class Math {
         @Override
         protected Optional<Object> applyList(List<Object> argList) {
            return (Optional)multiply(argList);
+        }
+
+    }
+
+    @SuppressWarnings( "unchecked" )
+    public static final class doubleMultiply extends Function.ListFunction {
+
+        @Override
+        protected Optional<Object> applyList(List<Object> argList) {
+           return (Optional)doubleMultiply(argList);
         }
 
     }
