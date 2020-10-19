@@ -62,7 +62,8 @@
             //
             "badArgs1" : "=divide(1,2,3)", // too many params
             "badArgs2" : "=divide(1)",      // not enough params
-            "multiply": "=multiply(@(1,nr),@(1,dr))" 
+            "multiply": "=multiply(@(1,nr),@(1,dr))",
+            "doubleMultiply": "=doubleMultiply(@(1,nr),@(1,dr))"
         },
         "data5": {
             "happyInt":       "=intSubtract(@(1,aInt),@(1,bInt))",
@@ -116,7 +117,8 @@
             "value": [5, 2],
             "nr": 51,
             "dr": 13,
-            "multiply":663
+            "multiply":663,
+            "doubleMultiply": 663.0
         },
         "data5": {
             // og data
