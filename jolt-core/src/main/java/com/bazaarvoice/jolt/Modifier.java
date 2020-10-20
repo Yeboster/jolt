@@ -69,6 +69,7 @@ public abstract class Modifier implements SpecDriven, ContextualTransform {
         STOCK_FUNCTIONS.put( "doubleMultiply", new Math.doubleMultiply() );
         
         STOCK_FUNCTIONS.put( "isoDateNow", new Dates.isoDateNow() );
+        STOCK_FUNCTIONS.put( "toIsoUtcDate", new Dates.toIsoUtcDate() );
 
         STOCK_FUNCTIONS.put( "toInteger", new Objects.toInteger() );
         STOCK_FUNCTIONS.put( "toDouble", new Objects.toDouble() );
