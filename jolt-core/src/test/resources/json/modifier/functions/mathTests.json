@@ -15,7 +15,9 @@
             "test2": [5, 0],     // Divide by 0 returns empty hence noop
             "test3": [0, 5],     // Divide 0 by any number returns 0
             "nr": 51,
-            "dr": 13
+            "dr": 13,
+            "nrDouble": 7.2,
+            "drDouble": 15.6
         },
         "data5": {
             "aInt" : 10,
@@ -63,7 +65,7 @@
             "badArgs1" : "=divide(1,2,3)", // too many params
             "badArgs2" : "=divide(1)",      // not enough params
             "multiply": "=multiply(@(1,nr),@(1,dr))",
-            "doubleMultiply": "=doubleMultiply(@(1,nr),@(1,dr))"
+            "doubleMultiply": "=doubleMultiply(@(1,nrDouble),@(1,drDouble))"
         },
         "data5": {
             "happyInt":       "=intSubtract(@(1,aInt),@(1,bInt))",
@@ -118,7 +120,9 @@
             "nr": 51,
             "dr": 13,
             "multiply":663,
-            "doubleMultiply": 663.0
+            "nrDouble": 7.2,
+            "drDouble": 15.6,
+            "doubleMultiply": 112.32
         },
         "data5": {
             // og data

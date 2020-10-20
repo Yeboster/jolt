@@ -336,14 +336,11 @@ public class Math {
 
         if(numerator.isPresent() && denominator.isPresent()) {
 
-            Double drLongValue = denominator.get().doubleValue();
-            if(drLongValue == 0) {
-                return Optional.empty();
-            }
+            Double drValue = denominator.get().doubleValue();
 
-            Double nrLongValue = numerator.get().doubleValue();
-            Double result = nrLongValue * drLongValue;
-            // long result = java.lang.Math.mul(nrLongValue, drLongValue);
+            Double nrValue = numerator.get().doubleValue();
+            Double result = nrValue * drValue;
+            // long result = java.lang.Math.mu(nrValue, drValue);
             return Optional.of(result);
         }
 
