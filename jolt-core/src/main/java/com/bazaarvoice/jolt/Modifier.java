@@ -22,6 +22,7 @@ import com.bazaarvoice.jolt.common.tree.WalkedPath;
 import com.bazaarvoice.jolt.exception.SpecException;
 import com.bazaarvoice.jolt.modifier.OpMode;
 import com.bazaarvoice.jolt.modifier.TemplatrSpecBuilder;
+import com.bazaarvoice.jolt.modifier.function.Dates;
 import com.bazaarvoice.jolt.modifier.function.Function;
 import com.bazaarvoice.jolt.modifier.function.Lists;
 import com.bazaarvoice.jolt.modifier.function.Math;
@@ -44,6 +45,7 @@ public abstract class Modifier implements SpecDriven, ContextualTransform {
         STOCK_FUNCTIONS.put( "toLower", new Strings.toLowerCase() );
         STOCK_FUNCTIONS.put( "toUpper", new Strings.toUpperCase() );
         STOCK_FUNCTIONS.put( "concat", new Strings.concat() );
+        STOCK_FUNCTIONS.put( "concatIfAllNotEmpty", new Strings.concatIfAllNotEmpty() );
         STOCK_FUNCTIONS.put( "join", new Strings.join() );
         STOCK_FUNCTIONS.put( "split", new Strings.split() );
         STOCK_FUNCTIONS.put( "substring", new Strings.substring() );
@@ -65,6 +67,9 @@ public abstract class Modifier implements SpecDriven, ContextualTransform {
         STOCK_FUNCTIONS.put( "divideAndRound", new Math.divideAndRound() );
         STOCK_FUNCTIONS.put( "multiply", new Math.multiply() );
         STOCK_FUNCTIONS.put( "doubleMultiply", new Math.doubleMultiply() );
+        
+        STOCK_FUNCTIONS.put( "isoDateNow", new Dates.isoDateNow() );
+        STOCK_FUNCTIONS.put( "toIsoUtcDate", new Dates.toIsoUtcDate() );
 
         STOCK_FUNCTIONS.put( "toInteger", new Objects.toInteger() );
         STOCK_FUNCTIONS.put( "toDouble", new Objects.toDouble() );
