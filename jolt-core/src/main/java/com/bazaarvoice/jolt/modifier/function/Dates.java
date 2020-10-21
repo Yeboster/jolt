@@ -25,8 +25,8 @@ public class Dates {
       }
 
       if (dateTime == null) {
-        // Hack: remove last 2 zeros, if present
-        String stripped = date.toString().replaceFirst("00$", "");
+        // Hack: fix timezone, if present
+        String stripped = date.toString().replaceFirst("00$", ":00");
         try {
           dateTime = ZonedDateTime.parse((String) stripped);
         } catch (Exception e) {
