@@ -1,0 +1,13 @@
+[
+  {
+    "operation": "modify-overwrite-beta",
+    "spec": {
+      "products": {
+        "*": {
+          "inviato": "=toBoolean",
+          "gestito": "=toBoolean"
+        }
+      }
+    }
+  }
+]
