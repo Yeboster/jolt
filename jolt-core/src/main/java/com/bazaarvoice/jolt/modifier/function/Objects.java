@@ -144,6 +144,13 @@ public class Objects {
             else if("false".equalsIgnoreCase( (String)arg )) {
                 return Optional.of( Boolean.FALSE );
             }
+        } else if(arg instanceof Integer) {
+            if(1 ==  (Integer)arg) {
+                return Optional.of( Boolean.TRUE );
+            }
+            else if(0 ==  (Integer)arg) {
+                return Optional.of( Boolean.FALSE );
+            }
         }
         return Optional.empty();
     }
