@@ -74,6 +74,7 @@ public abstract class Modifier implements SpecDriven, ContextualTransform {
 
         STOCK_FUNCTIONS.put( "toInteger", new Objects.toInteger() );
         STOCK_FUNCTIONS.put( "toDouble", new Objects.toDouble() );
+        STOCK_FUNCTIONS.put( "toFixedDouble", new Objects.toFixedDouble() );
         STOCK_FUNCTIONS.put( "toLong", new Objects.toLong() );
         STOCK_FUNCTIONS.put( "toBoolean", new Objects.toBoolean() );
         STOCK_FUNCTIONS.put( "toString", new Objects.toString() );

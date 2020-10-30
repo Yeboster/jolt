@@ -18,6 +18,8 @@ package com.bazaarvoice.jolt.modifier.function;
 
 import com.bazaarvoice.jolt.common.Optional;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -125,6 +127,38 @@ public class Objects {
             }
         }
         else {
+            return Optional.empty();
+        }
+    }
+
+    /**
+     * Returns a fixed digits length double value of argument, if possible, wrapped in Optional
+     * Interprets String as Number
+     */
+    public static Optional<Double> toFixedDouble(Object arg, Integer length) {
+        int digitsLength = length != null ? length : -1;
+
+        Double number = null;
+        if ( arg instanceof Number ) {
+            number = ((Number) arg).doubleValue();
+        }
+        else if(arg instanceof String) {
+            Optional<? extends Number> optional = toNumber( arg );
+            if ( optional.isPresent() ) {
+                number = optional.get().doubleValue();
+            }
+        }
+        
+        if (number != null) {
+            // Change digits lenght of double
+            if (digitsLength != -1) {
+                number = BigDecimal.valueOf(number)
+                            .setScale(digitsLength, RoundingMode.HALF_UP)
+                            .doubleValue();
+            }
+
+            return Optional.of( number );
+        } else {
             return Optional.empty();
         }
     }
@@ -242,6 +276,13 @@ public class Objects {
         @Override
         protected Optional<Double> applySingle( final Object arg ) {
             return toDouble( arg );
+        }
+    }
+
+    public static final class toFixedDouble extends Function.ArgDrivenSingleFunction<Integer, Double> {
+        @Override
+        protected Optional<Double> applySingle(Integer digitsSize, Object arg) {
+            return toFixedDouble(arg, digitsSize);
         }
     }
 
